@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Pulletin</title>
+		<meta name="viewport" content="width=device-width, user-scalable=no">
+		<style>
+			body {
+				background: url('http://apple.wallpapersfine.com/wallpapers/thumbs/750x1334/w-5177.jpg') no-repeat center center fixed;
+				-webkit-background-size: cover;
+				-moz-background-size: cover;
+				-o-background-size: cover;
+				background-size: cover;
+				margin: 0;
+			}
+			#seleport {
+				text-align: center;
+				position: fixed;
+				bottom: 15px;;
+				width: 100%;
+			}
+			#middlebutton {
+				background: transparent;
+				-webkit-appearance: none;
+				border: solid;
+				border-color: #ffffff;
+				border-radius: 50%;
+				height: 50px;
+				width: 50px;
+				outline: none;
+			}
+			.selebtn {
+				border: solid;
+				font-size: 15px;
+				border-width: 2px;
+				background: transparent;
+				color: #5F9290;
+				border-radius: 6px;
+				width: 30%;
+				margin-bottom: 10px;
+				margin-right: 3px;
+				margin-left: 3px;
+				outline: none;
+			}
+			#selebtnport {
+				opacity: 0;
+				transition: 0.5s;
+				-webkit-transition: 0.5s;
+			}
+			#custlist {
+				background: #bcc4c4;
+				width: 100%;
+				min-height: 100vh;
+				z-index: 100;
+				color: #949c9c;
+				font-size: 20px;
+				font-family: sans-serif;
+			}
+			#listport {
+				width: 100%;
+				min-height: 100vh;
+				text-align: center;
+			}
+			.listbtn {
+				background: #4d8785;
+				width: 90%;
+				border: none;
+				border-radius: 6px;
+				color: #ffffff;
+				font-size: 20px;
+				margin-top: 10px;
+				margin-bottom: 5px;
+				padding: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="dataport" style="display: none;">
+			<span id="midstat">hid</span>
+		</div>
+		<div id="listport" style="display: none;">
+			<div id="selelist">
+				<button class="listbtn">今日のリスト</button><br>
+				<button class="listbtn">新しいリスト</button>
+			</div>
+			<div id="custlist" style="display: none;"></div>
+		</div>
+		<div id="caleport">
+			
+		</div>
+		<div id="seleport">
+			<div id="selebtnport">
+				<button class="selebtn" id="listbton">リスト</button><button class="selebtn" id="itembton">アイテム</button><button class="selebtn" id="calenbton">カレンダー</button><br>
+			</div>
+			<button id="middlebutton" onclick="midinit()"></button>
+			<script>
+				function midinit() {
+					var stat = document.getElementById("midstat").innerHTML;
+					if(stat == "hid") {
+						document.getElementById("midstat").innerHTML = "shou";
+						document.getElementById("selebtnport").style.opacity = "1";
+						document.getElementById("listbton").disabled = false;
+						document.getElementById("itembton").disabled = false;
+						document.getElementById("selebton").disabled = false;
+					} else {
+						document.getElementById("midstat").innerHTML = "hid";
+						document.getElementById("selebtnport").style.opacity = "0";
+						document.getElementById("listbton").disabled = true;
+						document.getElementById("itembton").disabled = true;
+						document.getElementById("selebton").disabled = true;
+					}
+				}
+			</script>
+		</div>
+	</body>
+</html>
