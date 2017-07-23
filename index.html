@@ -7,6 +7,7 @@
 			body {
 				background: #f4f4f4;
 				margin: 0;
+				font-family: sans-serif;
 			}
 			#seleport {
 				text-align: center;
@@ -72,16 +73,42 @@
 				text-align: center;
 				font-family: sans-serif;
 				margin-top: 30px;
+				width: 90%;
+				margin-right: auto;
+				margin-left: auto;
+				background: #fffbf4;
+				min-height: 50vh;
+				padding: 10px;
+				border-radius: 5px;
+				border: solid;
+				border-color: #663300;
+				border-width: 1px;
+				transition: 0.5s;
+				-webkit-transition: 0.5s;
+			}
+			#ormint {
+				background: #ffffff;
+				width: 90%;
+				padding: 10px;
+				margin-right: auto;
+				margin-left: auto;
+				border-radius: 3px;
+				border: solid;
+				border-color: #bfbfbf;
+				border-width: 1px;
+				margin-bottom: 10px;
+				display: none;
 			}
 		</style>
 	</head>
 	<body>
 		<div id="tut">
 			<span style="font-size: 19px;">忘れ物の対策を始めよう</span><br><br>
-			<button class="selebtn blue">はじめる</button>
+			<button class="selebtn blue" onclick="shouormint()">チュートリアルを開始</button>
 		</div>
 		<div id="dataport" style="display: none;">
 			<span id="midstat">hid</span>
+			<span id="tutstat">stp</span>
 		</div>
 		<div id="listport" style="display: none;">
 			<div id="selelist">
@@ -97,25 +124,40 @@
 			<div id="selebtnport">
 				<button class="selebtn" id="listbton">リスト</button><button class="selebtn" id="itembton">アイテム</button><button class="selebtn" id="calenbton">カレンダー</button><br>
 			</div>
+			<div id="ormint">
+				<span>下のボタンを押してメニューを開けよう</span>
+			</div>
 			<button id="middlebutton" onclick="midinit()"></button>
 			<script>
 				function midinit() {
 					var stat = document.getElementById("midstat").innerHTML;
+					document.getElementById("ormint").style.display = "none";
+					var tutstat = document.getElementById("tutstat").innerHTML;
+					if(tutstat == "strt") {
+						document.getElementById("tut").innerHTML = '<span style="font-size: 19px;"><strong>機能について</strong></span><br><br><span><strong>リスト</strong></span><br><br><article><strong>「リスト」</strong>では、<strong>「カレンダー」</strong>にて設定した<strong>イベント用の持ち物のリストを「今日のリスト」でみることができます。</strong><br>イベントをその場で設定して<strong>最低限の持ち物リストを素早くみる場合、「新しいリスト」で見る</strong>ことができます。</article>';
+						document.getElementById("tut").style.opacity = "1";
+					}
 					if(stat == "hid") {
 						document.getElementById("midstat").innerHTML = "shou";
 						document.getElementById("selebtnport").style.opacity = "1";
 						document.getElementById("listbton").disabled = false;
 						document.getElementById("itembton").disabled = false;
-						document.getElementById("selebton").disabled = false;
+						document.getElementById("selebtn").disabled = false;
 					} else {
 						document.getElementById("midstat").innerHTML = "hid";
 						document.getElementById("selebtnport").style.opacity = "0";
 						document.getElementById("listbton").disabled = true;
 						document.getElementById("itembton").disabled = true;
-						document.getElementById("selebton").disabled = true;
+						document.getElementById("selebtn").disabled = true;
 					}
+				}
+				function shouormint() {
+					document.getElementById("tut").style.opacity = "0";
+					document.getElementById("ormint").style.display = "block";
+					document.getElementById("tutstat").innerHTML = "strt";
 				}
 			</script>
 		</div>
 	</body>
 </html>
+
