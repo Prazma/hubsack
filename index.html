@@ -12,8 +12,10 @@
 			#seleport {
 				text-align: center;
 				position: fixed;
-				bottom: 15px;;
+				bottom: 0;
 				width: 100%;
+				background: #f4f4f4;
+				padding: 10px;
 			}
 			#middlebutton {
 				background: transparent;
@@ -139,7 +141,7 @@
 					document.getElementById("tut").innerHTML = "";
 					var tutstat = document.getElementById("tutstat").innerHTML;
 					if(tutstat == "strt") {
-						document.getElementById("tut").innerHTML = '<span><strong>リスト</strong></span><br><article><strong>「リスト」</strong>では、<strong>「カレンダー」</strong>にて設定した<strong>イベント用の持ち物のリストを「今日のリスト」でみることができます。</strong><br>イベントをその場で設定して<strong>最低限の持ち物リストを素早くみる場合、「新しいリスト」で見る</strong>ことができます。</article><br<br><br><span><strong>アイテム</strong></span><br><article><strong>「アイテム」</strong>では、新しく買った持ち物、イベントに追加したい持ち物の<strong>場所を管理（家にあるか外にあるか）、所属するイベントの変更と追加</strong>することができます。</article><br><br><br><span><strong>カレンダー</strong></span><br><article><strong>「カレンダー」</strong>では、<strong>イベントを管理</strong>することができます。<strong>追加したイベントは、設定した日の「今日のリスト」にて持ち物が表示されます。</strong></article>';
+						document.getElementById("tut").innerHTML = '<span><strong>リスト</strong></span><br><article><strong>「リスト」</strong>では、<strong>「カレンダー」</strong>にて設定した<strong>イベント用の持ち物のリストを「今日のリスト」でみることができます。</strong><br>イベントをその場で設定して<strong>最低限の持ち物リストを素早くみる場合、「新しいリスト」で見る</strong>ことができます。</article><br<br><br><span><strong>アイテム</strong></span><br><article><strong>「アイテム」</strong>では、新しく買った持ち物、イベントに追加したい持ち物の<strong>場所を管理（家にあるか外にあるか）、所属するイベントの変更と追加</strong>することができます。</article><br><span><strong>カレンダー</strong></span><br><article><strong>「カレンダー」</strong>では、<strong>イベントを管理</strong>することができます。<strong>追加したイベントは、設定した日の「今日のリスト」にて持ち物が表示されます。</strong></article>';
 						document.getElementById("tut").style.opacity = "1";
 					}
 					if(stat == "hid") {
