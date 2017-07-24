@@ -133,7 +133,9 @@
 	<body>
 		<div id="tut">
 			<span style="font-size: 19px;">忘れ物の対策を始めよう</span><br><br>
-			<button class="selebtn widebtn" onclick="shouormint()">チュートリアルを開始</button>
+			<button class="selebtn widebtn" onclick="shouormint()">チュートリアルを開始</button><br><br>
+			<span style="font-size: 19px;">リストを毎日クリアしよう</span><br><br>
+			<button class="selebtn widebtn" onclick="shoutesta()">リストを表示</button>
 		</div>
 		<div id="dataport" style="display: none;">
 			<span id="midstat">hid</span>
@@ -182,6 +184,25 @@
 						document.getElementById("selebtn").disabled = true;
 					}
 				}
+				function shoutesta() {
+					document.getElementById("tut").style.opacity = "0";
+					document.getElementById("ormint").innerHTML = '<span>「リスト」をタップしてリストを表示しよう</span>';
+					document.getElementById("ormint").style.display = "block";
+					var stat = document.getElementById("midstat").innerHTML;
+					if(stat == "hid") {
+						document.getElementById("midstat").innerHTML = "shou";
+						document.getElementById("selebtnport").style.opacity = "1";
+						document.getElementById("listbton").disabled = false;
+						document.getElementById("itembton").disabled = false;
+						document.getElementById("selebtn").disabled = false;
+					} else {
+						document.getElementById("midstat").innerHTML = "hid";
+						document.getElementById("selebtnport").style.opacity = "0";
+						document.getElementById("listbton").disabled = true;
+						document.getElementById("itembton").disabled = true;
+						document.getElementById("selebtn").disabled = true;
+					}
+				}
 				function shouormint() {
 					document.getElementById("tut").style.opacity = "0";
 					document.getElementById("ormint").style.display = "block";
@@ -190,6 +211,7 @@
 				function wozkit() {
 					document.getElementById("tut").style.opacity = "0";
 					document.getElementById("tut").innerHTML = "";
+					document.getElementById("ormint").style.display = "none";
 				}
 				function newlistabhw() {
 					document.getElementById("seletie").style.display = "none";
