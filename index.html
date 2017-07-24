@@ -4,6 +4,7 @@
 		<title>NapSack</title>
 		<meta name="viewport" content="width=device-width, user-scalable=no">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://raw.githubusercontent.com/Prazma/napsack/master/css/post.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="https://raw.githubusercontent.com/Prazma/hubsack/master/js/query.js"></script>
@@ -114,6 +115,19 @@
 			#bodslist {
 				color: rgb(119, 119, 119);
 			}
+			.autocomplete-suggestions {
+				width: 100%;
+				background: #ffffff;
+				border: solid;
+				border-width: 1px;
+				border-color: #bfbfbf;
+				border-radius: 3px;
+				padding: 5px 5px 5px 5px;
+			}
+			.autocomplete-suggestion {
+				border-bottom: solid 1px #bfbfbf;
+				width: 100%;
+			}
 		</style>
 	</head>
 	<body>
@@ -178,8 +192,12 @@
 					document.getElementById("tut").innerHTML = "";
 				}
 				function newlistabhw() {
-					const bods = document.getElementById("bodslist");
-					bods.innerHTML = '<input type="text" class="form-control" id="usr" placeholder="イベントを入力">';
+					document.getElementById("seletie").style.display = "none";
+					document.getElementById("etie").style.display = "block";
+				}
+				function custbck() {
+					document.getElementById("seletie").style.display = "block";
+					document.getElementById("etie").style.display = "none";
 				}
 			</script>
 		</div>
@@ -191,13 +209,27 @@
 						<h4 class="modal-title">リスト</h4>
 					</div>
 					<div class="modal-body">
-						<div id="bodslist">
-							<span>リストの種類を選択してください</span><br><br>
-							<button class="btn btn-info" style="width: 90%;">今日のリスト</button><br><br>
-							<button class="btn btn-info" style="width: 90%;" onclick="newlistabhw()">新しいリスト</button><br><br>
+						<div id="selelist">
+							<div id="seletie">
+								<div id="bodslist">
+									<span>リストの種類を選択してください</span><br><br>
+									<button class="btn btn-info" style="width: 90%;">今日のリスト</button><br><br>
+									<button class="btn btn-info" style="width: 90%;" onclick="newlistabhw()">新しいリスト</button><br><br>
+								</div>
+							</div>
+							<div id="etie" style="display: none;">
+								<div id="content">
+									<div id="searchfield">
+										<form><input type="text" placeholder="イベントを入力" name="currency" class="form-control" id="usr" autocomplete="off"></form>
+									</div>
+								</div>
+								<br><button class="btn btn-default" onclick="custbck()" style="width: 100%">戻る</button>
+							</div>
+							<div class="autocomplete-suggestions" style="position: absolute; width: 600px; top: 245px; left: 75px; max-height: 300px; z-index: 9999; display: none; z-index: 1000;"><div class="autocomplete-suggestion" data-index="0">Ar<strong>m</strong>enian dra<strong>m</strong></div><div class="autocomplete-suggestion" data-index="1">Azerbaijani <strong>m</strong>anat</div><div class="autocomplete-suggestion" data-index="2">Baha<strong>m</strong>ian dollar</div><div class="autocomplete-suggestion" data-index="3">Bhutanese ngultru<strong>m</strong></div><div class="autocomplete-suggestion" data-index="4">Bosnia-Herzegovina konvertibilna <strong>m</strong>arka</div><div class="autocomplete-suggestion" data-index="5">Ca<strong>m</strong>bodian riel</div><div class="autocomplete-suggestion" data-index="6">Cay<strong>m</strong>an Islands dollar</div><div class="autocomplete-suggestion" data-index="7">Chinese ren<strong>m</strong>inbi</div><div class="autocomplete-suggestion" data-index="8">Colo<strong>m</strong>bian peso</div><div class="autocomplete-suggestion" data-index="9">Co<strong>m</strong>orian franc</div><div class="autocomplete-suggestion" data-index="10">Do<strong>m</strong>inican peso</div><div class="autocomplete-suggestion" data-index="11">Ga<strong>m</strong>bian dalasi</div><div class="autocomplete-suggestion" data-index="12">Guate<strong>m</strong>alan quetzal</div><div class="autocomplete-suggestion" data-index="13">Honduran le<strong>m</strong>pira</div><div class="autocomplete-suggestion" data-index="14">Ja<strong>m</strong>aican dollar</div><div class="autocomplete-suggestion" data-index="15">Kyrgyzstani so<strong>m</strong></div><div class="autocomplete-suggestion" data-index="16"><strong>M</strong>acanese pataca</div><div class="autocomplete-suggestion" data-index="17"><strong>M</strong>acedonian denar</div><div class="autocomplete-suggestion" data-index="18"><strong>M</strong>alagasy ariary</div><div class="autocomplete-suggestion" data-index="19"><strong>M</strong>alawian kwacha</div><div class="autocomplete-suggestion" data-index="20"><strong>M</strong>alaysian ringgit</div><div class="autocomplete-suggestion" data-index="21"><strong>M</strong>aldivian rufiyaa</div><div class="autocomplete-suggestion" data-index="22"><strong>M</strong>auritanian ouguiya</div><div class="autocomplete-suggestion" data-index="23"><strong>M</strong>auritian rupee</div><div class="autocomplete-suggestion" data-index="24"><strong>M</strong>exican peso</div><div class="autocomplete-suggestion" data-index="25"><strong>M</strong>oldovan leu</div><div class="autocomplete-suggestion" data-index="26"><strong>M</strong>ongolian tugrik</div><div class="autocomplete-suggestion" data-index="27"><strong>M</strong>oroccan dirha<strong>m</strong></div><div class="autocomplete-suggestion" data-index="28"><strong>M</strong>oza<strong>m</strong>bican <strong>m</strong>etical</div><div class="autocomplete-suggestion" data-index="29"><strong>M</strong>yan<strong>m</strong>a kyat</div><div class="autocomplete-suggestion" data-index="30">Na<strong>m</strong>ibian dollar</div><div class="autocomplete-suggestion" data-index="31">O<strong>m</strong>ani rial</div><div class="autocomplete-suggestion" data-index="32">Pana<strong>m</strong>anian balboa</div><div class="autocomplete-suggestion" data-index="33">Ro<strong>m</strong>anian leu</div><div class="autocomplete-suggestion" data-index="34">Sa<strong>m</strong>oan tala</div><div class="autocomplete-suggestion" data-index="35">Sao To<strong>m</strong>e and Principe dobra</div><div class="autocomplete-suggestion" data-index="36">Solo<strong>m</strong>on Islands dollar</div><div class="autocomplete-suggestion" data-index="37">So<strong>m</strong>ali shilling</div><div class="autocomplete-suggestion" data-index="38">Surina<strong>m</strong>ese dollar</div><div class="autocomplete-suggestion" data-index="39">Tajikistani so<strong>m</strong>oni</div><div class="autocomplete-suggestion" data-index="40">Turk<strong>m</strong>en <strong>m</strong>anat</div><div class="autocomplete-suggestion" data-index="41">United Arab E<strong>m</strong>irates dirha<strong>m</strong></div><div class="autocomplete-suggestion" data-index="42">Uzbekistani so<strong>m</strong></div><div class="autocomplete-suggestion" data-index="43">Vietna<strong>m</strong>ese dong</div><div class="autocomplete-suggestion" data-index="44">Ye<strong>m</strong>eni rial</div><div class="autocomplete-suggestion" data-index="45">Za<strong>m</strong>bian kwacha</div><div class="autocomplete-suggestion" data-index="46">Zi<strong>m</strong>babwean dollar</div></div>
 						</div>
 					</div>
 					<div class="modal-footer">
+						<span id="modfoot"></span>
 						<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
 					</div>
 				</div>
@@ -205,179 +237,15 @@
 		</div>
 		<script>
 			$(function(){
-  var currencies = [
-    { value: 'Afghan afghani', data: 'AFN' },
-    { value: 'Albanian lek', data: 'ALL' },
-    { value: 'Algerian dinar', data: 'DZD' },
-    { value: 'European euro', data: 'EUR' },
-    { value: 'Angolan kwanza', data: 'AOA' },
-    { value: 'East Caribbean dollar', data: 'XCD' },
-    { value: 'Argentine peso', data: 'ARS' },
-    { value: 'Armenian dram', data: 'AMD' },
-    { value: 'Aruban florin', data: 'AWG' },
-    { value: 'Australian dollar', data: 'AUD' },
-    { value: 'Azerbaijani manat', data: 'AZN' },
-    { value: 'Bahamian dollar', data: 'BSD' },
-    { value: 'Bahraini dinar', data: 'BHD' },
-    { value: 'Bangladeshi taka', data: 'BDT' },
-    { value: 'Barbadian dollar', data: 'BBD' },
-    { value: 'Belarusian ruble', data: 'BYR' },
-    { value: 'Belize dollar', data: 'BZD' },
-    { value: 'West African CFA franc', data: 'XOF' },
-    { value: 'Bhutanese ngultrum', data: 'BTN' },
-    { value: 'Bolivian boliviano', data: 'BOB' },
-    { value: 'Bosnia-Herzegovina konvertibilna marka', data: 'BAM' },
-    { value: 'Botswana pula', data: 'BWP' },
-    { value: 'Brazilian real', data: 'BRL' },
-    { value: 'Brunei dollar', data: 'BND' },
-    { value: 'Bulgarian lev', data: 'BGN' },
-    { value: 'Burundi franc', data: 'BIF' },
-    { value: 'Cambodian riel', data: 'KHR' },
-    { value: 'Central African CFA franc', data: 'XAF' },
-    { value: 'Canadian dollar', data: 'CAD' },
-    { value: 'Cape Verdean escudo', data: 'CVE' },
-    { value: 'Cayman Islands dollar', data: 'KYD' },
-    { value: 'Chilean peso', data: 'CLP' },
-    { value: 'Chinese renminbi', data: 'CNY' },
-    { value: 'Colombian peso', data: 'COP' },
-    { value: 'Comorian franc', data: 'KMF' },
-    { value: 'Congolese franc', data: 'CDF' },
-    { value: 'Costa Rican colon', data: 'CRC' },
-    { value: 'Croatian kuna', data: 'HRK' },
-    { value: 'Cuban peso', data: 'CUC' },
-    { value: 'Czech koruna', data: 'CZK' },
-    { value: 'Danish krone', data: 'DKK' },
-    { value: 'Djiboutian franc', data: 'DJF' },
-    { value: 'Dominican peso', data: 'DOP' },
-    { value: 'Egyptian pound', data: 'EGP' },
-    { value: 'Central African CFA franc', data: 'GQE' },
-    { value: 'Eritrean nakfa', data: 'ERN' },
-    { value: 'Estonian kroon', data: 'EEK' },
-    { value: 'Ethiopian birr', data: 'ETB' },
-    { value: 'Falkland Islands pound', data: 'FKP' },
-    { value: 'Fijian dollar', data: 'FJD' },
-    { value: 'CFP franc', data: 'XPF' },
-    { value: 'Gambian dalasi', data: 'GMD' },
-    { value: 'Georgian lari', data: 'GEL' },
-    { value: 'Ghanaian cedi', data: 'GHS' },
-    { value: 'Gibraltar pound', data: 'GIP' },
-    { value: 'Guatemalan quetzal', data: 'GTQ' },
-    { value: 'Guinean franc', data: 'GNF' },
-    { value: 'Guyanese dollar', data: 'GYD' },
-    { value: 'Haitian gourde', data: 'HTG' },
-    { value: 'Honduran lempira', data: 'HNL' },
-    { value: 'Hong Kong dollar', data: 'HKD' },
-    { value: 'Hungarian forint', data: 'HUF' },
-    { value: 'Icelandic krona', data: 'ISK' },
-    { value: 'Indian rupee', data: 'INR' },
-    { value: 'Indonesian rupiah', data: 'IDR' },
-    { value: 'Iranian rial', data: 'IRR' },
-    { value: 'Iraqi dinar', data: 'IQD' },
-    { value: 'Israeli new sheqel', data: 'ILS' },
-    { value: 'Jamaican dollar', data: 'JMD' },
-    { value: 'Japanese yen', data: 'JPY' },
-    { value: 'Jordanian dinar', data: 'JOD' },
-    { value: 'Kazakhstani tenge', data: 'KZT' },
-    { value: 'Kenyan shilling', data: 'KES' },
-    { value: 'North Korean won', data: 'KPW' },
-    { value: 'South Korean won', data: 'KRW' },
-    { value: 'Kuwaiti dinar', data: 'KWD' },
-    { value: 'Kyrgyzstani som', data: 'KGS' },
-    { value: 'Lao kip', data: 'LAK' },
-    { value: 'Latvian lats', data: 'LVL' },
-    { value: 'Lebanese lira', data: 'LBP' },
-    { value: 'Lesotho loti', data: 'LSL' },
-    { value: 'Liberian dollar', data: 'LRD' },
-    { value: 'Libyan dinar', data: 'LYD' },
-    { value: 'Lithuanian litas', data: 'LTL' },
-    { value: 'Macanese pataca', data: 'MOP' },
-    { value: 'Macedonian denar', data: 'MKD' },
-    { value: 'Malagasy ariary', data: 'MGA' },
-    { value: 'Malawian kwacha', data: 'MWK' },
-    { value: 'Malaysian ringgit', data: 'MYR' },
-    { value: 'Maldivian rufiyaa', data: 'MVR' },
-    { value: 'Mauritanian ouguiya', data: 'MRO' },
-    { value: 'Mauritian rupee', data: 'MUR' },
-    { value: 'Mexican peso', data: 'MXN' },
-    { value: 'Moldovan leu', data: 'MDL' },
-    { value: 'Mongolian tugrik', data: 'MNT' },
-    { value: 'Moroccan dirham', data: 'MAD' },
-    { value: 'Mozambican metical', data: 'MZM' },
-    { value: 'Myanma kyat', data: 'MMK' },
-    { value: 'Namibian dollar', data: 'NAD' },
-    { value: 'Nepalese rupee', data: 'NPR' },
-    { value: 'Netherlands Antillean gulden', data: 'ANG' },
-    { value: 'New Zealand dollar', data: 'NZD' },
-    { value: 'Nicaraguan cordoba', data: 'NIO' },
-    { value: 'Nigerian naira', data: 'NGN' },
-    { value: 'Norwegian krone', data: 'NOK' },
-    { value: 'Omani rial', data: 'OMR' },
-    { value: 'Pakistani rupee', data: 'PKR' },
-    { value: 'Panamanian balboa', data: 'PAB' },
-    { value: 'Papua New Guinean kina', data: 'PGK' },
-    { value: 'Paraguayan guarani', data: 'PYG' },
-    { value: 'Peruvian nuevo sol', data: 'PEN' },
-    { value: 'Philippine peso', data: 'PHP' },
-    { value: 'Polish zloty', data: 'PLN' },
-    { value: 'Qatari riyal', data: 'QAR' },
-    { value: 'Romanian leu', data: 'RON' },
-    { value: 'Russian ruble', data: 'RUB' },
-    { value: 'Rwandan franc', data: 'RWF' },
-    { value: 'Saint Helena pound', data: 'SHP' },
-    { value: 'Samoan tala', data: 'WST' },
-    { value: 'Sao Tome and Principe dobra', data: 'STD' },
-    { value: 'Saudi riyal', data: 'SAR' },
-    { value: 'Serbian dinar', data: 'RSD' },
-    { value: 'Seychellois rupee', data: 'SCR' },
-    { value: 'Sierra Leonean leone', data: 'SLL' },
-    { value: 'Singapore dollar', data: 'SGD' },
-    { value: 'Slovak koruna', data: 'SKK' },
-    { value: 'Solomon Islands dollar', data: 'SBD' },
-    { value: 'Somali shilling', data: 'SOS' },
-    { value: 'South African rand', data: 'ZAR' },
-    { value: 'Sudanese pound', data: 'SDG' },
-    { value: 'Sri Lankan rupee', data: 'LKR' },
-    { value: 'Sudanese pound', data: 'SDG' },
-    { value: 'Surinamese dollar', data: 'SRD' },
-    { value: 'Swazi lilangeni', data: 'SZL' },
-    { value: 'Swedish krona', data: 'SEK' },
-    { value: 'Swiss franc', data: 'CHF' },
-    { value: 'Syrian pound', data: 'SYP' },
-    { value: 'New Taiwan dollar', data: 'TWD' },
-    { value: 'Tajikistani somoni', data: 'TJS' },
-    { value: 'Tanzanian shilling', data: 'TZS' },
-    { value: 'Thai baht', data: 'THB' },
-    { value: 'Paanga', data: 'TOP' },
-    { value: 'Trinidad and Tobago dollar', data: 'TTD' },
-    { value: 'Tunisian dinar', data: 'TND' },
-    { value: 'Turkish new lira', data: 'TRY' },
-    { value: 'Turkmen manat', data: 'TMM' },
-    { value: 'Ugandan shilling', data: 'UGX' },
-    { value: 'Ukrainian hryvnia', data: 'UAH' },
-    { value: 'United Arab Emirates dirham', data: 'AED' },
-    { value: 'British pound', data: 'GBP' },
-    { value: 'United States dollar', data: 'USD' },
-    { value: 'Uruguayan peso', data: 'UYU' },
-    { value: 'Uzbekistani som', data: 'UZS' },
-    { value: 'Vanuatu vatu', data: 'VUV' },
-    { value: 'Venezuelan bolivar', data: 'VEB' },
-    { value: 'Vietnamese dong', data: 'VND' },
-    { value: 'Yemeni rial', data: 'YER' },
-    { value: 'Zambian kwacha', data: 'ZMK' },
-    { value: 'Zimbabwean dollar', data: 'ZWD' },
-  ];
-  
-  // setup autocomplete function pulling from currencies[] array
-  $('#usr').autocomplete({
-    lookup: currencies,
-    onSelect: function (suggestion) {
-      var thehtml = '<strong>Currency Name:</strong> ' + suggestion.value + ' <br> <strong>Symbol:</strong> ' + suggestion.data;
-      $('#outputcontent').html(thehtml);
-    }
-  });
-  
-
-});
+				var currencies = [
+					{ value: '学校', data: 'school' },
+				];
+				$('#usr').autocomplete({
+					lookup: currencies,
+					onSelect: function (suggestion) {
+					}
+				});
+			});
 		</script>
 	</body>
 </html>
